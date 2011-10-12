@@ -43,7 +43,6 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'guard-pow'
   gem 'guard-shell'
-  gem 'guard-cucumber'
   gem 'guard-spork'
   gem 'guard-shell'
   gem 'guard-bundler'
