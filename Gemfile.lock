@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/ttilley/rb-fsevent.git
+  revision: f36a8cd01b49a6ce2a26d9e1083b5f6e6722c470
+  branch: pre-compiled-gem-one-off
+  specs:
+    rb-fsevent (0.4.3.1pre1)
+
+GIT
   remote: https://github.com/thoughtbot/shoulda-matchers.git
   revision: 3d9439030b09208517311c1583beb0fe0a6c903b
   specs:
@@ -116,7 +123,7 @@ GEM
       ruby_parser (~> 2.0.5)
     mime-types (1.16)
     multi_json (1.0.3)
-    mysql (2.8.1)
+    mysql2 (0.3.7)
     nokogiri (1.5.0)
     polyglot (0.3.2)
     powder (0.1.6)
@@ -233,10 +240,11 @@ DEPENDENCIES
   hirb
   jquery-rails
   livereload
-  mysql
+  mysql2
   powder
   pry
   rails (= 3.1.0)
+  rb-fsevent!
   rspec-rails (~> 2.6.1.beta1)
   sass-rails (~> 3.1.0)
   shoulda-matchers!
