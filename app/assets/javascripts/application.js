@@ -6,4 +6,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ./vendor/jquery-ui
+//= require ./vendor/handlebars
+//= require ./vendor/underscore
+//= require ./vendor/backbone
+//= require ./vendor/helpers
+//= require_tree ./models/
+//= require_tree ./views/
 //= require_tree .

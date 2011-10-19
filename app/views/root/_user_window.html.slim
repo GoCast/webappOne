@@ -1,0 +1,46 @@
+h1
+  span.title {{ username }}
+  span.close x
+
+.body  
+  .video
+    embed.embed type="application/x-vlc-plugin" autoplay="yes" target="{{ url }}"
+    
+  p
+    button.start Start Capture
+    button.stop Stop Capture
+
+  .mic.section
+    h4
+      | Mic Volume
+      .right
+        button.mute Mute
+        button.unmute Unmute
+    p
+      .volume.slider
+
+  .rates.section
+    h4 Rates
+    p
+      label Bitrate:
+      select class="bitrate"
+        - (1..700).each do |i|
+          option class="bitrate-#{i}" value=i
+            = i
+
+    p
+      label Framerate:
+      select class="framerate"
+        - [30, 24, 20, 15, 8, 5, 1].each do |i|
+          option class="framerate-#{i}" value=i
+            = i
+          
+  .info.section
+    h4 More Info
+    p
+      label Resolution:
+      .resolution Loading...
+      
+    p
+      label Stream Url:
+      .stream-url Loading...

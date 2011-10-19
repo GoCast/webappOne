@@ -1,0 +1,91 @@
+$pane_width: 200px
+  
+#users_pane
+  display: block
+  background-color: rgba(0,0,0,0.2)
+  @include shadow(#000)  
+  padding: 10px
+  position: absolute
+  height: 100%
+  right: 0px
+  width: $pane_width
+    
+  h3
+    background-color: rgba(0,0,0,0.5)
+    margin: -10px -10px 10px -10px
+    padding: 5px 10px
+    font-size: 16px
+    font-weight: bold
+    @include shadow(#000)
+    font-size: 12px
+      
+    img
+      width: 40px
+
+    a
+      float: right
+      
+  #search_users
+    @include rounded(20px)
+    background: #fff
+    color: #333
+    width: $pane_width - 20px
+
+
+  .segment
+    h3
+      background-color: rgba(0,0,0,0.5)
+      margin: 10px -10px 0px -10px
+      padding: 5px 10px
+      font-size: 16px
+      font-weight: bold
+      @include shadow(#000)    
+
+    .item
+      @include rounded(5px)
+      background-color: rgba(0,0,0,0.2)
+      margin: 10px 0px 0px 0px
+
+      &.user
+        padding: 10px
+        cursor: pointer  
+
+        .avatar
+          width: 45px
+          float: left  
+          img
+            width: 37px
+
+        .description
+            
+          h4
+            font-weigth: bold
+            font-size: 14px  
+            text-shadow: 0px -1px black
+
+          .status
+            span
+              @include rounded(3px)
+              color: #000
+              padding: 0px 5px
+              font-size: 10px
+              background: #fff
+                
+            .show_status
+              @include rounded(7px)
+              margin: 4px 5px 0px 0px
+              width: 10px
+              height: 12px  
+              float: left  
+              background: #fff
+
+              &.Online
+                background: #0f0
+            
+      &.conversation
+        padding: 0px 0px 5px 0px
+        img
+          width: 37px
+          margin: 10px 0px 0px 10px  
+  
+    

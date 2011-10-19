@@ -1,0 +1,68 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td
+  :margin 0
+  :padding 0
+  :border 0
+  :font-weight inherit
+  :font-style inherit
+  :font-size 100%
+  :font-family inherit
+  :vertical-align baseline
+
+body
+  :line-height 1.5
+
+table
+  :border-collapse separate
+  :border-spacing 0
+
+caption, th, td
+  :text-align left
+  :font-weight normal
+
+table, td, th
+  :vertical-align middle
+
+blockquote
+  &:before, &:after
+    :content ""
+
+q
+  &:before, &:after
+    :content ""
+
+blockquote, q
+  :quotes "" ""
+
+a img
+  :border none
+
+img.right
+  float: right
+
+    
+@mixin rounded($corner)
+  -moz-border-radius: $corner
+  -webkit-border-radius: $corner
+
+@mixin shadow($color)
+  -moz-box-shadow: 2px 2px 4px $color 
+  -webkit-box-shadow: 2px 2px 4px $color 
+
+@mixin gradient($first, $last)
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $first), color-stop(100%, $last))
+  background: -moz-linear-gradient(top, $first 0%, $last 100%)
+
+.hide
+  display: none
+
+.clear
+  clear: both
+
+.ui-tooltip-content
+  font-weight: normal !important
+
+  span
+    font-weight: bold
+    display: block
+    width: 50px
+    float: left
