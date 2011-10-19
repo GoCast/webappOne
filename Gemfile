@@ -29,7 +29,6 @@ gem 'unicorn'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 gem 'mysql2'
-gem 'pg'
 
 group :development do  
   gem "powder"
