@@ -32,7 +32,6 @@ gem 'mysql2'
 
 group :development do  
   gem "powder"
-  gem "growl_notify"
 end
 
 group :test do
