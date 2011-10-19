@@ -1,5 +1,11 @@
-NeuronOne::Application.routes.draw do
+Neuronapp::Application.routes.draw do
+  match "api/*method" => "api#call"
+
+  devise_for :users, :controllers => { :sessions => "sessions" }
+
   root to: "root#index"
+  match "status.json" => "root#status", format: "json"
+  resources :root
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

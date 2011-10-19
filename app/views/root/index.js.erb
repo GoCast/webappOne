@@ -1,0 +1,5 @@
+<% if @users_changed %>
+	  userDigest = '<%= User.digest %>';
+		$("#users_pane #users.segment .list").html("<%= escape_javascript(render partial: "user", collection: @users)  %>")
+		addEvents();
+<% end %>

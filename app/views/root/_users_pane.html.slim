@@ -1,0 +1,11 @@
+h3
+  = link_to "Sign out", destroy_user_session_path, :method => "delete"
+  = image_tag current_user.image_url
+
+#users.segment
+  h3 Users
+
+  .list
+    | Loading...
+      
+= render_js_template "user"

@@ -1,0 +1,73 @@
+.window
+  @include shadow(#333)  
+  @include gradient(#eaeaea, #a8a8a8)
+  color: #333
+  position: relative
+  border: 1px solid #000
+  width: 250px
+
+  h1
+    background-color: rgba(0,0,0,0.8)
+    cursor: move
+    color: #fff
+    position: relative
+
+    span.title
+      padding: 5px 10px
+      display: block
+      font-size: 14px
+      font-weight: bold
+
+    span.close
+      color: #fff
+      position: absolute
+      cursor: pointer
+      right: 10px
+      top: 5px
+
+
+.body
+  padding: 10px
+
+  .video
+    background: #000
+    color: #fff
+    text-align: center
+
+    embed
+      width: 220px
+
+  .section
+    @include rounded(5px)
+    margin: 10px 0px 0px 0px
+    background: #fff
+    padding: 2px 5px
+    font-size: 12px
+
+    h4
+      border-bottom: 1px dotted #ccc
+      font-weight: bold
+
+      .right
+        float: right
+
+    label
+      width: 75px
+      float: left
+        
+    .slider
+      margin: 3px
+    
+    
+  .people
+    p
+      border-bottom: 1px dotted #333
+      font-weight: bold
+      color: #0066FF
+
+    span.status.muted
+      @include rounded(3px)
+      color: #aa0000
+      font-weight: normal
+      padding: 3px 5px
+      margin: 10px 0px 0px 0px

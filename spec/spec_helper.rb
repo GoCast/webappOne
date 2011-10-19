@@ -2,6 +2,8 @@ require 'rubygems'
 require 'spork'
 
 Spork.prefork do
+
+  # This file is copied to spec/ when you run 'rails generate rspec:install'
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
@@ -27,11 +29,14 @@ Spork.prefork do
     # examples within a transaction, remove the following line or assign false
     # instead of true.
     config.use_transactional_fixtures = true
+    config.include Devise::TestHelpers, :type => :controller
   end
 
 end
 
 Spork.each_run do
-  # This code will be run each time you run your specs
+  # This code will be run each time you run your specs.
+  
 end
+
 

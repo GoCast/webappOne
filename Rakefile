@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-NeuronOne::Application.load_tasks
+Neuronapp::Application.load_tasks

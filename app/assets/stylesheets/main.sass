@@ -1,0 +1,62 @@
+@import "reset"
+
+  
+body
+  background: url("/images/bg.jpg")
+  font-family: Verdana, Helvetica, Arial, sans-serif
+  font-size: 13px
+  color: #fff
+
+  a
+    color: #fff
+  
+
+  h1.primary
+    font-size: 20px
+    text-shadow: 0px -1px black
+
+    
+
+  h2, .secondary
+    color: #9FAFB8
+    text-shadow: 0px -1px black
+    font-weight: bold
+    font-size: 16px
+
+  input
+    padding: 8px
+    font-family: Verdana, Helvetica, Arial, sans-serif
+    background-color: rgba(85,97,107,0.6)
+    border: 1px solid #333
+    color: #fff
+    font-weight: bold
+    @include rounded(3px)
+
+  input[type=submit]
+    @include gradient(#eaeaea, #a8a8a8)
+    background-color: rgba(191,191,191,1)
+    color: #515151
+
+  #login
+    @include rounded(5px)
+    @include shadow(#000)
+    margin: 30px auto
+    background-color: rgba(0,0,0,0.2)
+    padding: 20px
+    width: 320px
+
+    input[type=text], input[type=email], input[type=password]
+      width: 300px
+
+    .loader
+      width: 220px
+      margin: 0px auto
+
+  #app
+    @import "users_pane"
+
+    #body
+      padding: 30px
+
+      @import "window"  
+
