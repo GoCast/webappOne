@@ -6,6 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ./vendor/jquery.jsonp
 //= require ./vendor/jquery-ui
 //= require ./vendor/handlebars
 //= require ./vendor/underscore

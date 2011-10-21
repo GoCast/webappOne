@@ -29,7 +29,7 @@ window.UserWindow = Backbone.View.extend
     SessionManager.framerate.set framerate
 
   toggleMute: ->
-    SessionManager.volume.toggleMute =>
+    SessionManager.mic.toggle =>
       @updateVolumeControls()
 
   stopCapture: ->
@@ -72,7 +72,7 @@ window.UserWindow = Backbone.View.extend
       position: "absolute"
 
   updateVolumeControls: ->
-    SessionManager.volume.get (data) =>
+    SessionManager.mic.get (data) =>
       if data.muted
         @$(".mute").hide()
         @$(".unmute").show()
@@ -85,7 +85,7 @@ window.UserWindow = Backbone.View.extend
         value: data.vol,
         change: (event, ui) ->
           volume = $(this).slider('values',0)
-          SessionManager.volume.set volume
+          SessionManager.mic.set volume
 
   updateCaptureButtons: ->
     SessionManager.capture.get (data) =>
