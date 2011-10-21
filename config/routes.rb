@@ -5,7 +5,8 @@ Neuronapp::Application.routes.draw do
 
   root to: "root#index"
   match "status.json" => "root#status", format: "json"
-  resources :root
+  resources :root, :users
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

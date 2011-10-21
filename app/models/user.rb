@@ -39,7 +39,8 @@ class User < ActiveRecord::Base
       username: username,
       email: email,
       image_url: image_url,
-      status: status
+      status: status,
+      rtsp_url: rtsp_url
     }
   end
 

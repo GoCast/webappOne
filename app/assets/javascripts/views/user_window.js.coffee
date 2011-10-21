@@ -150,3 +150,62 @@ window.UserWindow = Backbone.View.extend
       $("#body").append @render().el
     else
       $("##{@id}").show()
+
+
+
+
+
+
+
+window.CommonUserWindow = Backbone.View.extend
+  initialize: ->
+    @addBindings()
+    @addTemplate()
+
+  className: "window",
+
+  events:
+    "click h1 .close"   : "close"
+
+  close: ->
+    $(@el).hide()
+
+  addBindings: ->
+    @model.bind "change", @render, this
+
+  addTemplate: ->
+    @template = compileJsTemplate "common_window"
+
+  setAsDraggable: ->
+    $(@el).draggable
+      handle: "h1",
+      start: (event, ui) =>
+        $(@el).css({"z-index": zindex+=1})
+
+  setAsResizable: ->
+    $(@el).resizable
+      minWidth: 250,
+      minHeight: 200,
+      alsoResize: "##{@id} .body .video",
+
+      stop: (event, ui) =>
+        @$("embed").width @$(".video").width()
+        @$("embed").height @$(".video").height()
+
+  positionWindow: ->
+    $(@el).css
+      left: 10 + (initialWindowIncrement+= 10),
+      top: 70 + initialWindowIncrement,
+      position: "absolute"
+
+  render: ->
+    $(@el).html @template(@model.toJSON())
+    @setAsDraggable()
+    @setAsResizable()
+    this
+
+  insert: ->
+    if ($("##{@id}").length == 0)
+      $("#body").append @render().el
+    else
+      $("##{@id}").show()

@@ -9,7 +9,7 @@ class RootController < ApplicationController
 		if @digest_changed
       render :json => {
         changed: true,
-        users: (User.ordered - [current_user]),
+        users: [current_user] + (User.ordered - [current_user]),
         current_user: current_user,
         digest: User.digest
       }

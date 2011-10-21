@@ -25,7 +25,6 @@ window.UserView = Backbone.View.extend
     currentUserWindow.insert()
 
   openUserWindow: ->
-    # SessionManager.capture.startAndWaitForUrl (url) ->
-    #   @model.url = url
-    #   @window = new UserWindow(model: @model, id: "user-window-#{@model.id}")
-    #   @window.insert()
+    if @model.id != currentUser.id && @model.get("status") == "Online"
+      commonWindow = new CommonUserWindow(model: @model, id: "common-window-#{@model.get('id')}")
+      commonWindow.insert()
