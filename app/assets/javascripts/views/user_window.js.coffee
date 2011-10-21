@@ -62,7 +62,7 @@ window.UserWindow = Backbone.View.extend
   setAsResizable: ->
     $(@el).resizable
       minWidth: 250,
-      minHeight: 200,
+      minHeight: 430,
       alsoResize: "##{@id} .body .video",
 
       stop: (event, ui) =>
