@@ -1,19 +1,29 @@
+$jsonp = (slug, options) ->
+  defaultOptions =
+    url: "http://localhost:8082#{slug}"
+    callbackParameter: "callback"
+
+  $.jsonp _.extend(defaultOptions, options)
+
 SessionManager =
 
   capture:
 
     get: (callback) ->
-      $.getJSON("/api/capture", callback)
+      $jsonp "/GET_CAPTURE_STATE"
+        success: callback
 
     start: (callback) ->
-      $.getJSON("/api/capture/start", callback)
+      $jsonp "/START_CAPTURE"
+        success: callback
 
     stop: (callback) ->
-      $.getJSON("/api/capture/stop", callback)
+      $jsonp "/STOP_CAPTURE"
+        success: callback
 
     getUrl: (callback) ->
-      $.getJSON("/api/capture/url", callback)
-
+      $jsonp "/GET_RTSP_URL"
+        success: callback
 
     startAndWaitForUrl: (callback) ->
       @start =>
@@ -21,38 +31,68 @@ SessionManager =
           @getUrl (data) ->
             callback(data.rtsp_url)
 
-  volume:
+  mic:
 
     get: (callback) ->
-      $.getJSON("/api/volume", callback)
+      $jsonp "/GET_MIC_VOLUME"
+        success: callback
 
     set: (volume, callback) ->
-      $.getJSON("/api/volume/set?vol=#{volume}", callback)
+      $jsonp "/SET_MIC_VOLUME"
+        success: callback
+        data:
+          vol: volume
 
-    toggleMute: (callback) ->
-      $.getJSON("/api/volume/toggle", callback)
+    toggle: (callback) ->
+      $jsonp "/SET_MIC_TOGGLE_MUTE"
+        success: callback
 
+
+  speaker:
+
+    get: (callback) ->
+      $jsonp "/GET_SPEAKER_VOLUME"
+        success: callback
+
+    set: (volume, callback) ->
+      $jsonp "/SET_SPEAKER_VOLUME"
+        success: callback
+        data:
+          vol: volume
+
+    toggle: (callback) ->
+      $jsonp "/SET_SPEAKER_TOGGLE_MUTE"
+        success: callback
 
   bitrate:
 
     get: (callback) ->
-      $.getJSON("/api/bitrate", callback)
+      $jsonp "/GET_BITRATE"
+        success: callback
 
     set: (bitrate, callback) ->
-      $.getJSON("/api/bitrate/set?bitrate=#{bitrate}", callback)
+      $jsonp "/SET_BITRATE"
+        success: callback
+        data:
+          bitrate: bitrate
 
   framerate:
 
     get: (callback) ->
-      $.getJSON("/api/framerate", callback)
+      $jsonp "/GET_FRAMERATE"
+        success: callback
 
-    set: (framerate, callback) ->
-      $.getJSON("/api/framerate/set?fps=#{framerate}", callback)
+    set: (fps, callback) ->
+      $jsonp "/SET_FRAMERATE"
+        success: callback
+        data:
+          fps: fps
 
   resolution:
 
     get: (callback) ->
-      $.getJSON("/api/resolution", callback)
+      $jsonp "/GET_RESOLUTION"
+        success: callback
 
 
 window.SessionManager = SessionManager
