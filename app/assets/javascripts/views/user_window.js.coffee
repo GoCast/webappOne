@@ -5,6 +5,9 @@ window.UserWindow = Backbone.View.extend
   initialize: ->
     @addBindings()
     @addTemplate()
+    SessionManager.capture.get (data) =>
+      if data.state == "running"
+        @startCapture()
 
   className: "window",
 
@@ -41,6 +44,7 @@ window.UserWindow = Backbone.View.extend
       @model.setUrl url
       @updateCaptureButtons()
       @updateVideo()
+      @setAsResizable()
       @updateControls()
 
   addBindings: ->
@@ -73,18 +77,25 @@ window.UserWindow = Backbone.View.extend
 
   updateVolumeControls: ->
     SessionManager.mic.get (data) =>
-      if data.muted
+      if !data.muted
         @$(".mute").hide()
         @$(".unmute").show()
+        @$(".mute-state").show()
       else
         @$(".mute").show()
         @$(".unmute").hide()
+        @$(".mute-state").hide()
+
+      @$(".mic .level").html(data.vol)
+
       @$(".volume.slider").slider
         min: 0,
         max: 100,
         value: data.vol,
         change: (event, ui) ->
-          volume = $(this).slider('values',0)
+          $slider = $(this)
+          volume = $slider.slider('values',0)
+          $slider.parent().find(".level").html(volume)
           SessionManager.mic.set volume
 
   updateCaptureButtons: ->
@@ -92,9 +103,13 @@ window.UserWindow = Backbone.View.extend
       if data.state == "stopped"
         @$(".stop").hide()
         @$(".start").show()
+        @$(".not-capturing").show()
+        @$(".capturing").hide()
       else
         @$(".start").hide()
         @$(".stop").show()
+        @$(".not-capturing").hide()
+        @$(".capturing").show()
 
   updateInfo: ->
     SessionManager.resolution.get (data) =>
@@ -113,12 +128,12 @@ window.UserWindow = Backbone.View.extend
       @$(".framerate-#{data.fps}").attr("selected", "selected")
 
   updateControls: ->
-    @setAsResizable()
     @updateVolumeControls()
     @updateCaptureButtons()
     @updateInfo()
     @updateBitrate()
     @updateFramerate()
+    # @setAsResizable()
 
   render: ->
     $(@el).html @template(@model.toJSON())

@@ -25,7 +25,6 @@
       right: 10px
       top: 5px
 
-
 .body
   padding: 10px
 
@@ -37,6 +36,23 @@
     embed
       width: 220px
 
+  .flag
+    @include rounded(3px)
+    margin: 2px 0px 0px 5px  
+    float: right
+    padding: 3px 5px
+    background: #aaa
+    font-size: 8px
+    font-weight: bold
+      
+
+    &.on
+      background: lime
+
+    &.off
+      background: red
+      
+      
   .section
     @include rounded(5px)
     margin: 10px 0px 0px 0px
@@ -50,6 +66,14 @@
 
       .right
         float: right
+
+      .info
+        @include rounded(3px)
+        font-size: 8px
+        background: #ccc
+        padding: 1px 5px
+        margin: 0px 0px 0px 5px  
+        
 
     label
       width: 75px
