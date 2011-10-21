@@ -30,9 +30,9 @@ h1
     p
       label Bitrate:
       select class="bitrate"
-        - (1..700).each do |i|
-          option class="bitrate-#{i}" value=i
-            = i
+        - (1..15).each do |i|
+          option class="bitrate-#{i*50}" value=i*50
+            = i*50
 
     p
       label Framerate:

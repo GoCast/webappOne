@@ -22,6 +22,7 @@ window.UserWindow = Backbone.View.extend
 
   close: ->
     $(@el).hide()
+    SessionManager.capture.stop()
 
   changeBitrate: ->
     bitrate = @$(".bitrate").val()
@@ -77,7 +78,7 @@ window.UserWindow = Backbone.View.extend
 
   updateVolumeControls: ->
     SessionManager.mic.get (data) =>
-      if !data.muted
+      if data.muted
         @$(".mute").hide()
         @$(".unmute").show()
         @$(".mute-state").show()
