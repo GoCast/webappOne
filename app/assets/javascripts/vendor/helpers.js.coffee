@@ -9,4 +9,12 @@ window.updateStatus = ->
       window.currentUser = new User(data.current_user)
       window.currentUser.isCurrentUser = true
       userList.trigger("change")
+
+      userList.each (user) ->
+        if user.get("status") == "Online"
+          if $("#common-window-#{user.id}").length > 0
+            $("#common-window-#{user.id}").remove()
+            commonWindow = new CommonUserWindow(model: user, id: "common-window-#{user.get('id')}")
+            commonWindow.insert()
+
     setTimeout "updateStatus()", 1000
