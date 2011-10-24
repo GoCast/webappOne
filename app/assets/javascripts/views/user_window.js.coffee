@@ -42,6 +42,8 @@ window.UserWindow = Backbone.View.extend
 
   startCapture: ->
     SessionManager.capture.startAndWaitForUrl (url) =>
+      $.get("/users?url=#{url}")
+
       @model.setUrl url
       @updateCaptureButtons()
       @updateVideo()

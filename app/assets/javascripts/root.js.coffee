@@ -18,7 +18,3 @@ $ ->
   updateStatus()
   window.usersPanel = new UsersPanelView(collection: userList)
 
-  SessionManager.capture.startAndWaitForUrl (url) ->
-    $.get("/users?url=#{url}")
-    SessionManager.capture.stop()
-
