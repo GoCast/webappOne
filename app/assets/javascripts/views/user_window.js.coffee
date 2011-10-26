@@ -21,7 +21,7 @@ window.UserWindow = Backbone.View.extend
     "change .framerate" : "changeFramerate"
 
   close: ->
-    $(@el).hide()
+    $(@el).remove()
     SessionManager.capture.stop()
 
   changeBitrate: ->
