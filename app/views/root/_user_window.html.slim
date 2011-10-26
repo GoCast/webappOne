@@ -4,7 +4,7 @@ h1
 
 .body  
   .video
-    embed.embed type="application/x-vlc-plugin" autoplay="yes" target="{{ url }}"
+    embed.embed type="application/x-vlc-plugin" autoplay="yes" target="{{url}}" options=":rtsp-caching=300" rtsp-caching="300"
     
   p
     button.start Start Capture

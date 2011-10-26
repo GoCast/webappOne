@@ -5,8 +5,8 @@ html
     title
       = yield :title
   
-    = stylesheet_link_tag "application"  
-    = javascript_include_tag "application"
+    = stylesheet_link_tag "application", "http://revolunet.github.com/VLCcontrols/src/styles.css"
+    = javascript_include_tag "application", "http://revolunet.github.com/VLCcontrols/src/jquery-vlc.js"
     = csrf_meta_tag
 
   body
