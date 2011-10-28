@@ -207,7 +207,13 @@ window.CommonUserWindow = Backbone.View.extend
     $(@el).html @template(@model.toJSON())
     @setAsDraggable()
     @setAsResizable()
+    @updateVideo()
     this
+
+  updateVideo: ->
+    window.vlc = @$(".embed")[0]
+    id = vlc.playlist.add(@model.get("url"),"test", [":rtsp-caching=300"] )
+    vlc.playlist.playItem(id)
 
   insert: ->
     if ($("##{@id}").length == 0)
