@@ -1,7 +1,5 @@
 Neuronapp::Application.routes.draw do
-  match "api/*method" => "api#call"
-
-  devise_for :users, :controllers => { :sessions => "sessions" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :sessions => "sessions" }
 
   root to: "root#index"
   match "status.json" => "root#status", format: "json"
