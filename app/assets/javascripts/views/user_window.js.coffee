@@ -213,6 +213,7 @@ window.CommonUserWindow = Backbone.View.extend
   updateVideo: ->
     @vlc = @$(".embed")[0]
     id = @vlc.playlist.add(@model.get("rtsp_url"),"test", [":rtsp-caching=300"] )
+    @vlc.audio.volume = 50
     @vlc.playlist.playItem(id)
 
   insert: ->
